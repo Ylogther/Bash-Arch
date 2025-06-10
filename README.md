@@ -1,9 +1,9 @@
 
 # 🎛️ Bash-Arch: Colección de Scripts para Arch Linux + Hyprland
 
-**Versión**: 5.1.2 | **Licencia**: GPLv3  
+**Versión**: 5.1.3 | **Licencia**: GPLv3  
 ![Estado](https://img.shields.io/badge/estado-estable-brightgreen)
-![Licencia](https://img.shields.io/github/license/Ylogther/bash-s?color=blue)
+![Licencia](https://img.shields.io/github/license/Ylogther/bash-arch?color=blue)
 
 🔧 Herramienta profesional para automatizar instalaciones, configuraciones y mantenimiento en Arch Linux con enfoque en Hyprland, gaming, multimedia, seguridad y desarrollo
 
