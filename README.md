@@ -9,6 +9,7 @@
 🔧 Herramienta profesional para automatizar instalaciones, configuraciones y mantenimiento en Arch Linux, optimizada para Hyprland, gaming, multimedia, ciberseguridad y desarrollo.
 
 🧭 Elige tu versión
+
 🔹 Versión Estable
 Te recomendamos esta versión si buscas estabilidad, confiabilidad y una experiencia sin errores. Ideal para uso diario o en entornos de trabajo: https://github.com/Ylogther/bash-arch
 
