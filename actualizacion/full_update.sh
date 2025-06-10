@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: full_update.sh
+
 # Colores para mejor legibilidad
 RED='\033[0;31m'
 GREEN='\033[0;32m'
