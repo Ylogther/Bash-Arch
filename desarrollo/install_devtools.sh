@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: install_devtools.sh
+
 set -e
 
 # === Instalación de herramientas de desarrollo ===
