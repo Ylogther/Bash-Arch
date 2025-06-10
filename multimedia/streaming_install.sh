@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: streaming_install.sh
+
 set -e
 
 echo "🎥 Instalando OBS Studio y plugins esenciales para streaming..."
