@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: wifi_watchdog.sh
+
 NETWORK="3A2"
 INTERFACE="wlan0"
 
