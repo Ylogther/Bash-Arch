@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: multimedia_install.sh
+
 # Colores para mejor lectura
 GREEN='\e[32m'
 YELLOW='\e[33m'
