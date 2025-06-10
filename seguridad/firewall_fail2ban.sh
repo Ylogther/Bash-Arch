@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: firewall_fail2ban.sh
+
 set -e
 
 echo "🚧 Instalando y configurando firewall y fail2ban..."
