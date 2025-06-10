@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: setup_dev_env.sh
+
 set -e
 
 echo "💻 Instalando herramientas de desarrollo para C, C++ y Java..."
