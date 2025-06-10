@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: instalar_blackarch.sh
+
 # Script para instalar el repositorio de BlackArch desde una carpeta temporal
 
 # Paso 1: Crear carpeta temporal
