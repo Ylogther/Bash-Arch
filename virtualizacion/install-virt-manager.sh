@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: install-virt-manager.sh
+
 # Salir si hay errores
 set -e
 
