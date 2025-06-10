@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: cambio_mac.sh
+
 set -e
 
 RED='\033[0;31m'
