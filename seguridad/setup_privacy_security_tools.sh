@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: setup_privacy_security_tools.sh
+
 set -euo pipefail
 
 LOGFILE="install_log.txt"
