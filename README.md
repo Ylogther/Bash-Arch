@@ -31,30 +31,47 @@ bash-arch/
 ├── actualizacion/                 # Scripts para actualizar el sistema
 │   └── full_update.sh             # Actualización completa del sistema
 ├── desarrollo/                   # Herramientas y setups para desarrollo
-│   ├── install_devtools.sh       # Instalación de herramientas de desarrollo
-│   ├── ml4w_install.sh           # Instalación de ML4W (Instala dotfiles de los mejores que he visto)
-│   ├── setup_dev_env.sh          # Configuración de entorno de desarrollo
-     └── 
+│   ├── README.md                 # Información general sobre scripts de desarrollo
+│   ├── instalar_blackarch.sh     # Instalación del repositorio BlackArch
+│   ├── install_devtools.sh       # Instalación de herramientas de desarrollo (base-devel, etc.)
+│   ├── ml4w_install.sh           # Instalación de ML4W (dotfiles de alto nivel)
+│   └── setup_dev_env.sh          # Configuración completa del entorno de desarrollo
 ├── gaming/                      # Scripts para optimizar y preparar el entorno gaming
-│   ├── drivers_install.sh        # Instalación de drivers NVIDIA, Intel, AMD, etc.
-│   └── instalacion-gaming.sh     # Configuraciones gaming adicionales
+│   ├── README.md                 # Información sobre configuraciones y optimizaciones gaming
+│   ├── drivers_install.sh        # Instalación de drivers (NVIDIA, Intel, AMD, etc.)
+│   ├── instalacion-gaming.sh     # Configuraciones adicionales para entorno gaming
+│   └── mas/                      # Extras específicos para gaming
+│       └── Minecraft-install.sh  # Instalación automática y optimizada de Minecraft
+├── icons/                       # Paquetes de iconos personalizados para el sistema
+│   ├── Orbian-Ultradark.zip      # Tema de iconos Orbian Ultradark (ZIP)
+│   └── Vivid-Dark-Icons.tar.gz   # Tema de iconos Vivid Dark (TAR.GZ)
 ├── multimedia/                  # Instalación de programas multimedia y streaming
-│   ├── davinci_resolve_deps.sh  # Dependencias para DaVinci Resolve
-│   ├── multimedia_install.sh     # Instalación general de multimedia
-│   └── streaming_install.sh      # Instalación y configuración de OBS y plugins
-├── seguridad/                   # Scripts orientados a seguridad y red
-│   ├── cambio_mac.sh             # Cambio de MAC address con opción propia o predeterminada
-│   ├── firewall_fail2ban.sh      # Configuración básica de firewall y fail2ban
-│   └── update_full.sh            # Script de actualización con enfoque en seguridad
-├── solucion_problema_wifi/      # Scripts y documentación para problemas wifi
-│   └── README.md
-├── virtualizacion/              # Scripts para configurar y optimizar virtualización
-│   ├── protocolo-salmon.sh
-│   └── protocolo-salmon-vm.sh
+│   ├── README.md                 # Información general sobre multimedia
+│   ├── davinci_resolve_deps.sh  # Instalación de dependencias para DaVinci Resolve
+│   ├── multimedia_install.sh     # Instalación de herramientas multimedia generales
+│   ├── streaming_install.sh      # Instalación y configuración de OBS y sus plugins
+│   └── solucion abrir davinci resolve/  # Fixes específicos para problemas al abrir DaVinci Resolve
+│       └── d.sh                 # Script de solución directa para errores de arranque
+├── seguridad/                   # Scripts orientados a privacidad, seguridad y red
+│   ├── README.md                         # Información general sobre herramientas de seguridad
+│   ├── cambio_mac.sh                    # Cambio de dirección MAC (aleatoria o manual)
+│   ├── firewall_fail2ban.sh             # Configuración básica de firewall y fail2ban
+│   ├── install_log.txt                  # Registro de instalación o ejecución de herramientas
+│   └── setup_privacy_security_tools.sh  # Instalación de utilidades centradas en privacidad y seguridad
+├── solucion_problema_wifi/      # Scripts y documentación para solucionar problemas de Wi-Fi
+│   ├── README.md                 # Descripción de los problemas conocidos y soluciones aplicadas
+│   └── wifi_watchdog.sh          # Script que reinicia automáticamente el Wi-Fi al detectar desconexión
 ├── utilidades/                  # Herramientas y scripts auxiliares generales
-│   └── install_yay.sh            # Instalador automático y limpio de yay
-├── LICENSE                     # Licencia GPLv3
-└── README.md                   # Este archivo
+│   └── install_yay.sh            # Instalador automático y limpio de yay (AUR helper)
+├── virtualizacion/              # Scripts para configurar y optimizar entornos de virtualización
+│   ├── README.md                 # Información general sobre configuración de virtualización
+│   └── install-virt-manager.sh   # Instalación y setup de virt-manager y dependencias
+├── LICENSE                       # Licencia del proyecto (GPLv3)
+├── README.md                     # Descripción general del repositorio
+├── aparte_por_si_no_tengo_x11.txt  # Notas o procedimientos alternativos si no hay entorno gráfico
+├── dato_para_juego.txt          # Información o dato técnico relacionado con juegos
+└── subirgithub.sh               # Script para subir automáticamente el proyecto a GitHub
+
 
 ````
 
