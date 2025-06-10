@@ -10,12 +10,13 @@
 
 🧭 Elige tu versión
 🔹 Versión Estable
-Te recomendamos esta versión si buscas estabilidad, confiabilidad y una experiencia sin errores. Ideal para uso diario o en entornos de trabajo.
+Te recomendamos esta versión si buscas estabilidad, confiabilidad y una experiencia sin errores. Ideal para uso diario o en entornos de trabajo: https://github.com/Ylogther/bash-arch
 
 🔸 Versión Beta/Inestable
 Perfecta si quieres probar las últimas funciones, mejoras experimentales y cambios recientes. ⚠️ Puede contener errores, pero es ideal para testers y usuarios curiosos.
+:https://github.com/Ylogther/bash-arch-BETA
 
-🎯 Te recomendamos entrar a la versión estable si quieres algo que no te provoque errores. Pero si quieres probar las últimas actualizaciones, entonces juega con laversión beta.
+🎯 Te recomendamos entrar a la versión estable si quieres algo que no te provoque errores. Pero si quieres probar las últimas actualizaciones, entonces juega con la versión beta.
 
 
 
