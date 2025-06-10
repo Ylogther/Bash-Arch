@@ -8,6 +8,17 @@
 
 🔧 Herramienta profesional para automatizar instalaciones, configuraciones y mantenimiento en Arch Linux, optimizada para Hyprland, gaming, multimedia, ciberseguridad y desarrollo.
 
+🧭 Elige tu versión
+🔹 Versión Estable
+Te recomendamos esta versión si buscas estabilidad, confiabilidad y una experiencia sin errores. Ideal para uso diario o en entornos de trabajo.
+
+🔸 Versión Beta/Inestable
+Perfecta si quieres probar las últimas funciones, mejoras experimentales y cambios recientes. ⚠️ Puede contener errores, pero es ideal para testers y usuarios curiosos.
+
+🎯 Te recomendamos entrar a la versión estable si quieres algo que no te provoque errores. Pero si quieres probar las últimas actualizaciones, entonces juega con laversión beta.
+
+
+
 **Compatibilidad completa con drivers Intel, AMD y NVIDIA.**
 
 > ✨ Ideal para desarrolladores, creadores de contenido y entusiastas del Linux personalizado.
