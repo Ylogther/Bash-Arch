@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: ml4w_install.sh
+
 set -e  # Detener si hay algún error
 
 # ==== Colores para mejor legibilidad ====
