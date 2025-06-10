@@ -33,7 +33,8 @@ bash-arch/
 ├── desarrollo/                   # Herramientas y setups para desarrollo
 │   ├── install_devtools.sh       # Instalación de herramientas de desarrollo
 │   ├── ml4w_install.sh           # Instalación de ML4W (Instala dotfiles de los mejores que he visto)
-│   └── setup_dev_env.sh          # Configuración de entorno de desarrollo
+│   ├── setup_dev_env.sh          # Configuración de entorno de desarrollo
+    └── 
 ├── gaming/                      # Scripts para optimizar y preparar el entorno gaming
 │   ├── drivers_install.sh        # Instalación de drivers NVIDIA, Intel, AMD, etc.
 │   └── instalacion-gaming.sh     # Configuraciones gaming adicionales
