@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#script: instalacion-gaming.sh
+
 # Colores
 GREEN='\e[32m'
 RED='\e[31m'
