@@ -4,6 +4,7 @@
 <p align="left">
   <img src="https://img.shields.io/badge/estado-estable-brightgreen" alt="Estado: Estable" />
   <img src="https://img.shields.io/github/license/Ylogther/bash-arch?color=blue" alt="Licencia: GPLv3" />
+  ![Arch Linux](https://img.shields.io/badge/compatibilidad-ArchLinux-%236C6C6C?logo=arch-linux&logoColor=white)
 </p>
 
 🔧 Herramienta profesional para automatizar instalaciones, configuraciones y mantenimiento en Arch Linux, optimizada para Hyprland, gaming, multimedia, ciberseguridad y desarrollo.
