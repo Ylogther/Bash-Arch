@@ -1,10 +1,10 @@
 # 🎛️ Bash-Arch – Scripts para Arch Linux con Hyprland, Gaming, Multimedia y Seguridad
 
-**Versión**: 5.1.3 | **Licencia**: GPLv3  
+**Versión**: 5.1.5 | **Licencia**: GPLv3  
 <p align="left">
   <img src="https://img.shields.io/badge/estado-estable-brightgreen" alt="Estado: Estable" />
   <img src="https://img.shields.io/github/license/Ylogther/bash-arch?color=blue" alt="Licencia: GPLv3" />
-  
+
   ![Arch Linux](https://img.shields.io/badge/compatibilidad-ArchLinux-%236C6C6C?logo=arch-linux&logoColor=white)
 </p>
 
@@ -74,8 +74,8 @@ bash-arch/
 │   └── mas/                         # Scripts adicionales específicos para juegos
 │       └── Minecraft-install.sh     # Instala el launcher oficial de Minecraft desde el AUR
 ├── icons/                           # Temas de iconos listos para ser instalados
-│   ├── Orbian-Ultradark.zip         # Tema para mouse
-│   └── Vivid-Dark-Icons.tar.gz      # Tema para iconos
+│   ├── Orbian-Ultradark.tar.zst         # Tema para mouse
+│   └── Vivid-Dark-Icons.tar.zst      # Tema para iconos
 ├── multimedia/                      # Setup para edición de video, OBS y multimedia en general
 │   ├── README.md                    # Información general de esta sección
 │   ├── davinci_resolve_deps.sh     # Instala las dependencias que requiere DaVinci Resolve en Arch
