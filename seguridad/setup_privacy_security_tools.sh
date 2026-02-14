@@ -1,101 +1,137 @@
 #!/bin/bash
-
-#script: setup_privacy_security_tools.sh
+# script: setup_privacy_security_tools.sh
 
 set -euo pipefail
 
+#####################################
+# CONFIGURACIÓN
+#####################################
+
 LOGFILE="install_log.txt"
+
+# Activar BlackArch (true / false)
+INSTALL_BLACKARCH="${INSTALL_BLACKARCH:-false}"
+
+#####################################
+# LOGGING
+#####################################
+
 exec > >(tee -i "$LOGFILE")
 exec 2>&1
 
 GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
+RED='\033[1;31m'
 NC='\033[0m'
 
 log_info()    { echo -e "${YELLOW}[*] $1${NC}"; }
 log_success() { echo -e "${GREEN}[✓] $1${NC}"; }
+log_error()   { echo -e "${RED}[✗] $1${NC}"; }
 
-# Verificar dependencias básicas
+#####################################
+# CHECKS
+#####################################
+
 log_info "Verificando dependencias críticas del sistema..."
 
-for cmd in sudo pacman git curl ping; do
+for cmd in sudo pacman git curl; do
     if ! command -v "$cmd" &>/dev/null; then
-        echo "[-] El comando '$cmd' es requerido y no está instalado. Abortando."
+        log_error "El comando '$cmd' es requerido y no está instalado."
         exit 1
     fi
 done
 
-# Verificar conexión a internet
 log_info "Verificando conexión a Internet..."
-ping -c 1 archlinux.org &>/dev/null || {
-    echo "[-] No tienes conexión a Internet. Abortando."
+curl -Is https://archlinux.org >/dev/null || {
+    log_error "No tienes conexión a Internet funcional."
     exit 1
 }
 
+#####################################
+# PROTONVPN (FLATPAK)
+#####################################
+
 instalar_protonvpn() {
     log_info "Instalando ProtonVPN (GUI) desde Flatpak..."
-    log_info "Tamaño aproximado de descarga: ~150 MB"
-    log_info "Tamaño aproximado instalado: ~400 MB"
+    log_info "Descarga aprox: ~150 MB | Instalado: ~400 MB"
 
     if ! command -v flatpak &>/dev/null; then
-        log_info "Flatpak no encontrado. Instalando..."
-        sudo pacman -S --noconfirm flatpak
+        sudo pacman -S --noconfirm --needed flatpak
     fi
 
-    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y flathub com.protonvpn.www
+    sudo flatpak remote-add --if-not-exists flathub \
+        https://flathub.org/repo/flathub.flatpakrepo
 
-    log_success "ProtonVPN instalado correctamente. Puedes ejecutarlo con:"
-    echo "    flatpak run com.protonvpn.www"
+    sudo flatpak install -y flathub com.protonvpn.www
+
+    log_success "ProtonVPN instalado correctamente."
+    echo "    Ejecutar con: flatpak run com.protonvpn.www"
 }
+
+#####################################
+# YAY
+#####################################
+
+ensure_yay() {
+    if ! command -v yay &>/dev/null; then
+        log_info "'yay' no encontrado. Instalando..."
+        rm -rf tm 2>/dev/null || true
+        mkdir tm
+        cd tm
+        curl -fsSL https://raw.githubusercontent.com/Ylogther/Bash-Arch/refs/heads/main/utilidades/install_yay.sh -o install_yay.sh
+        chmod +x install_yay.sh
+        ./install_yay.sh
+        cd ..
+        rm -r tm
+    fi
+}
+
+#####################################
+# VERACRYPT (AUR)
+#####################################
 
 instalar_veracrypt() {
     log_info "Instalando VeraCrypt desde AUR..."
-    log_info "Tamaño aproximado de descarga: ~25 MB"
-    log_info "Tamaño aproximado instalado: ~70 MB"
+    log_info "Descarga aprox: ~25 MB | Instalado: ~70 MB"
 
-    if ! command -v yay &>/dev/null; then
-        log_info "'yay' no encontrado. Instalando..."
-        cd ~
-        sudo pacman -S --needed --noconfirm git base-devel
-        git clone https://aur.archlinux.org/yay.git
-        cd yay
-        makepkg -si --noconfirm
-    fi
+    ensure_yay
+    yay -S --needed veracrypt
 
-    yay -S --noconfirm veracrypt
     log_success "VeraCrypt instalado correctamente."
 }
 
-instalar_blackarch_tools() {
-    echo
-    echo -e "${YELLOW}Información de tamaños aproximados para las categorías BlackArch:${NC}"
-    echo " - blackarch-networking: descarga ~250 MB / instalado ~600 MB"
-    echo " - blackarch-scanner:    descarga ~200 MB / instalado ~500 MB"
-    echo " - blackarch-webapp:     descarga ~300 MB / instalado ~700 MB"
-    echo
+#####################################
+# BLACKARCH
+#####################################
 
-    read -p "¿Quieres instalar herramientas útiles de BlackArch (networking, scanner, webapp)? (s/n): " opt
-    if [[ "$opt" == "s" || "$opt" == "S" ]]; then
-        log_info "Instalando herramientas de BlackArch..."
-        sudo pacman -S --noconfirm blackarch-networking blackarch-scanner blackarch-webapp
-        log_success "Herramientas de BlackArch instaladas."
-    else
-        log_info "Omisión de herramientas BlackArch."
+enable_blackarch_repo() {
+    if grep -q "^\[blackarch\]" /etc/pacman.conf; then
+        log_info "Repositorio BlackArch ya habilitado."
+        return
     fi
+
+    log_info "Habilitando repositorio BlackArch..."
+    curl -fsSLO https://blackarch.org/strap.sh
+    chmod +x strap.sh
+    sudo ./strap.sh
+    rm -f strap.sh
+    echo "BlackArch instalado"
 }
 
-limpiar_cache() {
-    log_info "Limpiando caché de paquetes AUR..."
-    yay -Sc --noconfirm || true
-}
+#####################################
+# CLEANUP
+#####################################
+
+
+#####################################
+# MAIN
+#####################################
 
 log_info "Iniciando instalación completa..."
 
 instalar_protonvpn
 instalar_veracrypt
-instalar_blackarch_tools
-limpiar_cache
+enable_blackarch_repo
 
-log_success "✅ Todos los componentes fueron instalados correctamente."
+log_success "Todos los componentes fueron instalados correctamente."
 echo "📄 Revisa el log en: $LOGFILE"

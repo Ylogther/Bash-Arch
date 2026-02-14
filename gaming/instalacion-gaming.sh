@@ -78,7 +78,7 @@ echo "AMD: $HAS_AMD"
 # Intel drivers
 if [[ $HAS_INTEL -eq 1 ]]; then
     titulo "Instalando drivers Intel + Vulkan"
-    pacman -S --noconfirm mesa libva-intel-driver libva-utils vulkan-intel vulkan-icd-loader vulkan-tools || {
+    sudo pacman -S --noconfirm mesa libva-intel-driver libva-utils vulkan-intel vulkan-icd-loader vulkan-tools || {
         echo -e "${RED}Error instalando drivers Intel.${RESET}"; exit 1;
     }
 fi
@@ -86,24 +86,40 @@ fi
 # AMD drivers
 if [[ $HAS_AMD -eq 1 ]]; then
     titulo "Instalando drivers AMD + Vulkan"
-    pacman -S --noconfirm mesa xf86-video-amdgpu vulkan-radeon vulkan-icd-loader vulkan-tools || {
+    sudo pacman -S --noconfirm mesa xf86-video-amdgpu vulkan-radeon vulkan-icd-loader vulkan-tools || {
         echo -e "${RED}Error instalando drivers AMD.${RESET}"; exit 1;
     }
 fi
 
 # NVIDIA drivers
 if [[ $HAS_NVIDIA -eq 1 ]]; then
-    titulo "Instalando drivers NVIDIA propietarios"
-    pacman -S --noconfirm nvidia nvidia-utils nvidia-settings nvidia-prime || {
-        echo -e "${RED}Error instalando drivers NVIDIA.${RESET}"; exit 1;
+    titulo "Instalando drivers NVIDIA propietarios (DKMS)"
+
+    read -p "¿Quieres instalar linux-headers? (s/S y/Y) " decision
+
+case "$decision" in
+    [sSyY])
+        echo "Instalando linux-headers..."
+        pacman -S --noconfirm linux-headers || { echo -e "${RED}Error instalando linux-headers.${RESET}"; exit 1; }
+        ;;
+    *)
+        echo "Omitiendo linux-headers..."
+        ;;
+esac
+   
+
+    # Instala DKMS + utilidades NVIDIA
+    pacman -S --noconfirm nvidia-dkms nvidia-utils nvidia-settings nvidia-prime dkms  || {
+        echo -e "${RED}Error instalando drivers NVIDIA.${RESET}"
+        exit 1
     }
+
+    # Habilitar y arrancar servicio persistente
     systemctl enable nvidia-persistenced.service
     systemctl start nvidia-persistenced.service
 fi
 
-if [[ $HAS_NVIDIA -eq 0 && $HAS_INTEL -eq 0 && $HAS_AMD -eq 0 ]]; then
-    echo -e "${YELLOW}No se detectó GPU compatible para instalar drivers gráficos específicos.${RESET}"
-fi
+
 
 # Wine y herramientas
 titulo "INSTALANDO WINE Y WINETRICKS"
@@ -111,11 +127,20 @@ pacman -S --noconfirm wine winetricks || { echo -e "${RED}Error instalando Wine.
 
 # Steam
 titulo "INSTALANDO STEAM"
-pacman -S --noconfirm steam steam-native-runtime || { echo -e "${RED}Error instalando Steam.${RESET}"; exit 1; }
+pacman -S --noconfirm steam || { echo -e "${RED}Error instalando Steam.${RESET}"; exit 1; }
 
-# Lutris
-titulo "INSTALANDO LUTRIS"
-pacman -S --noconfirm lutris || { echo -e "${RED}Error instalando Lutris.${RESET}"; exit 1; }
+read -p "¿Quieres instalar Lutris? (s/S y/Y) " decision
+
+case "$decision" in
+    [sSyY])
+        echo "Instalando Lutris..."
+        pacman -S --noconfirm lutris || { echo -e "${RED}Error instalando Lutris.${RESET}"; exit 1; }
+        ;;
+    *)
+        echo "Omitiendo Lutris..."
+        ;;
+esac
+
 
 # Flatpak + Heroic
 titulo "INSTALANDO FLATPAK Y HEROIC GAMES LAUNCHER"
@@ -137,10 +162,6 @@ pacman -S --noconfirm gamemode || { echo -e "${RED}Error instalando GameMode.${R
 # Audio con PipeWire
 titulo "INSTALANDO PIPEWIRE"
 pacman -S --noconfirm pipewire pipewire-audio pipewire-alsa pipewire-pulse wireplumber || { echo -e "${RED}Error instalando PipeWire.${RESET}"; exit 1; }
-
-# Soporte gamepads
-titulo "INSTALANDO SOPORTE PARA GAMEPADS"
-pacman -S --noconfirm game-devices-udev || { echo -e "${RED}Error instalando soporte para gamepads.${RESET}"; exit 1; }
 
 # Final
 titulo "TODO COMPLETO. REINICIA TU SISTEMA PARA APLICAR LOS CAMBIOS."

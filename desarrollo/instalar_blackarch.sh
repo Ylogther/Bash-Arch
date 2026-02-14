@@ -23,9 +23,10 @@ sudo ./strap.sh || { echo "[-] Error al ejecutar strap.sh"; exit 1; }
 # Paso 5: Sincronizar base de datos de paquetes
 echo "[*] Actualizando la base de datos de pacman..."
 sudo pacman -Sy
-
+cd ..
+rm -rf $TEMP_DIR
 echo "[✓] BlackArch instalado correctamente desde carpeta temporal."
 
 # Mensaje final
 echo "Puedes listar herramientas con: pacman -Sgg | grep blackarch"
-echo "Puedes eliminar la carpeta temporal con: rm -rf $TEMP_DIR"
+

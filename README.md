@@ -1,6 +1,6 @@
 # 🎛️ Bash-Arch – Scripts para Arch Linux con Hyprland, Gaming, Multimedia y Seguridad
 
-**Versión**: 5.1.5 | **Licencia**: GPLv3  
+**Versión**: 5.9.0 | **Licencia**: GPLv3  
 <p align="left">
   <img src="https://img.shields.io/badge/estado-estable-brightgreen" alt="Estado: Estable" />
   <img src="https://img.shields.io/github/license/Ylogther/bash-arch?color=blue" alt="Licencia: GPLv3" />
@@ -65,11 +65,10 @@ bash-arch/
 │   ├── README.md                    # Explicación de los scripts de desarrollo
 │   ├── instalar_blackarch.sh        # Añade y sincroniza el repositorio BlackArch para pentesting
 │   ├── install_devtools.sh          # Instala base-devel y herramientas de desarrollo estándar
-│   ├── ml4w_install.sh              # Instala dotfiles avanzados "MyLinuxForWork" para Hyprland
+│   ├── ax-shell(mejorado).sh              # Instala dotfiles avanzados "Axenide" para Hyprland "repo = https://github.com/Axenide/Ax-Shell"
 │   └── setup_dev_env.sh             # Automatiza configuración de entorno dev general (git, zsh, etc.)
 ├── gaming/                          # Scripts para optimizar el sistema para juegos
-│   ├── README.md                    # Detalles sobre configuraciones gaming incluidas
-│   ├── drivers_install.sh           # Instala automáticamente drivers NVIDIA, AMD o Intel según hardware
+│   ├── README.md                    # Detalles sobre configuraciones gaming incluidas│   
 │   ├── instalacion-gaming.sh        # Aplica ajustes y paquetes extra para gaming (gamemode, mangohud, etc.)
 │   └── mas/                         # Scripts adicionales específicos para juegos
 │       └── Minecraft-install.sh     # Instala el launcher oficial de Minecraft desde el AUR
@@ -141,10 +140,7 @@ bash utilidades/install_yay.sh
 bash desarrollo/install_devtools.sh
 
 # Configurar entorno Hyprland personalizado
-bash desarrollo/ml4w_install.sh
-
-# Instalar OBS Studio y plugins
-bash multimedia/streaming_install.sh
+bash desarrollo/ax-shell(mejorado).sh
 
 # Activar firewall + fail2ban
 bash seguridad/firewall_fail2ban.sh
