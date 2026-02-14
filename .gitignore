@@ -1,4 +1,5 @@
-/actualizacion/compilarKernel.sh
-/actualizacion/e
-/gaming/drivers_install.sh
-/seguridad/install_log.txt
+*.log
+seguridad/install_log.txt
+actualizacion/compilarKernel.sh
+actualizacion/e
+gaming/drivers_install.sh
